@@ -1,7 +1,7 @@
-# Product Dedup 
+# Product Dedup (Groq + Fuzzy + Union-Find)
 
 
-The script attempts to solve the task:
+The script solves the task:
 - find duplicate products with inconsistent names (Hebrew/English variants),
 - group duplicates transitively,
 - and output the lowest price for each product's group.
@@ -11,11 +11,18 @@ The script attempts to solve the task:
 1. Read input CSV with required columns: `product_id`, `title`, `price`.
 2. Normalize each title with Groq LLM (`llama-3.1-8b-instant`), with caching per raw title.
 3. Compare product pairs using:
-   - fuzzy similarity on normalized names,
-   - guardrails to avoid obvious false merges (for example `Ultra/Pro/Max/Plus` mismatches).
+   - fuzzy similarity on normalized names
+   - guardrails to avoid obvious false merges
 4. Build duplicate groups with union-find (transitive closure).
 5. For each group, compute `lowest_price_in_group`.
 6. Write output CSV.
+
+## Input format
+
+Expected CSV columns:
+- `product_id`
+- `title`
+- `price`
 
 ## Install
 
@@ -50,6 +57,12 @@ Run:
 python main.py
 ```
 
+## Run tests
+
+```bash
+python -m pytest -q tests.py
+```
+
 ## Output
 
 The output file is:
@@ -68,9 +81,11 @@ This value is the minimum price among all products in the matched duplicate clus
 This is not a perfect solution and intentionally keeps the logic simple.
 
 The approach relies on:
-LLM normalization quality
-fuzzy similarity thresholds
-It is more effective for structured product names (e.g. electronics)
+- LLM normalization quality
+- Fuzzy similarity thresholds
+
+It is more effective for structured product names (e.g. electronics).
+
 It may struggle with:
 - very short or ambiguous titles
 - non-standard naming
@@ -87,8 +102,8 @@ It may struggle with:
 
 This solution demonstrates a practical hybrid approach:
 
-LLM for normalization
-heuristics for control
-clustering for grouping
+- LLM for normalization
+- Heuristics for control
+- Clustering for grouping
 
 The focus is on building a simple, explainable pipeline that can be extended and adapted to different domains.
