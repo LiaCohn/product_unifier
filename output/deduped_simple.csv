@@ -1,0 +1,9 @@
+product_id,title,price,store,lowest_price_in_group
+p1,Samsung Galaxy S23 128GB Black,3299,zap,3290.0
+p2,סמסונג גלקסי 23 128 גיגה,3399,other,3290.0
+p3,23S Samsung Galaxy 128GB,3290,market,3290.0
+p4,Samsung Galaxy S23 Ultra 256GB,4599,zap,4599.0
+p5,סמסונג S23 אולטרה 256,4699,other,4599.0
+p6,Apple iPhone 15 128GB Blue,3999,zap,3999.0
+p7,אייפון 15 128 גיגה כחול,4050,other,3999.0
+p8,Galaxy A54 5G 128GB,1899,zap,1899.0
