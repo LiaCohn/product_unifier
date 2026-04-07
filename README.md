@@ -1,8 +1,7 @@
-# Product Dedup (Final Script: `main.py`)
+# Product Dedup 
 
-This repository now uses a single final script: `main.py`.
 
-The script solves the task:
+The script attempts to solve the task:
 - find duplicate products with inconsistent names (Hebrew/English variants),
 - group duplicates transitively,
 - and output the lowest price for each product's group.
