@@ -92,6 +92,7 @@ It may struggle with:
 - domain-specific attributes (e.g. furniture dimensions, fashion sizes)
 
 ## Possible Improvements
+- Scalability: current matching is all-pairs (`O(n^2)`); add blocking/candidate generation (for example by normalized brand + model-family) to reduce comparisons on large catalogs
 - Domain-specific tuning (per category: electronics, furniture, fashion, etc.)
 - Better structured extraction (attributes like size, color, material)
 - Replacing pairwise matching with scalable clustering approaches
